@@ -1,14 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import mern from './../assets/images/mern.jpeg';
-import Grid from '@material-ui/core/Grid';
-import auth from './../auth/auth-helper';
-import Newsfeed from './../post/Newsfeed';
-import FindPeople from './../user/FindPeople';
+import React, { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import auth from "./../auth/auth-helper";
+import Newsfeed from "./../post/Newsfeed";
+import FindPeople from "./../user/FindPeople";
+import SignUp from "./../user/Signup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     maxWidth: 600,
-    margin: 'auto',
+    margin: "auto",
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(5),
   },
@@ -32,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home({history}) {
+export default function Home({ history }) {
   const classes = useStyles();
   const [defaultPage, setDefaultPage] = useState(false);
 
@@ -49,21 +45,9 @@ export default function Home({history}) {
   return (
     <div className={classes.root}>
       {!defaultPage && (
-        <Grid container spacing={8}>
-          <Grid item xs={12}>
-            <Card className={classes.card}>
-              <Typography variant="h6" className={classes.title}>
-                Home Page
-              </Typography>
-              <CardMedia className={classes.media} image={mern} title="MERN" />
-              <CardContent>
-                <Typography type="body1" component="p">
-                  Welcome to the MERN Social home page.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+        <div>
+          <SignUp />
+        </div>
       )}
       {defaultPage && (
         <Grid container spacing={8}>
